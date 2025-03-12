@@ -62,12 +62,12 @@ function onCellRightClick(ev, elCell, i, j) {
     const cell = gModelBoard[i][j]
     if (cell.revealed || !gGame.isOn) return
     if (cell.flagged === false) {
-        
+
         cell.flagged = true
         gGame.flaggedCount++
         elCell.innerHTML = FLAG_HTML_STR
         elCell.classList.add(`flagged`)
-        
+
         FLAG_SOUND.currentTime = 0
         FLAG_SOUND.play()
 
@@ -151,3 +151,5 @@ function revealNegsHoles(pos) {
 function createIdNameFromPos(pos) {
     return `#c-${pos.i}-${pos.j}`
 }
+
+

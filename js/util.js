@@ -22,3 +22,21 @@ function getRandomColor() {
   return color
 }
 
+
+//neighbours loop
+
+// // pos = {i,j}
+// //change the matrix name from matrix to your oun name
+
+// for (let i = pos.i - 1; i <= pos.i + 1; i++) {
+//   for (let j = pos.j - 1; j <= pos.j + 1; j++) {
+
+//       if (i < 0 || j < 0 ||
+//           i > matrix.length - 1 ||
+//           j > matrix[i].length - 1 ||
+//           (i === pos.i && j === pos.j)) {
+//           continue
+//           //insert here what to do each itteration
+//        }
+//     }
+// }
