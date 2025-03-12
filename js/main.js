@@ -107,7 +107,7 @@ function revealNegsHoles(pos) {
 
             // console.log("cell: ", cell)
             // console.log("i,j: ", i, j)
-            revealHole(pos)
+            revealHole({i,j})
             if (cell.minesAroundCount === 0) {
                 revealNegsHoles({ i, j })
             }
