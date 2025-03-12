@@ -1,16 +1,26 @@
-/* @font-face {
-    font-family: 'font name';
-    src: url('../') format('truetype');
+@font-face {
+    font-family: 'dirty-war';
+    src: url('../fonts/dirty-war.otf') format('truetype');
     font-weight: normal;
     font-style: normal;
-} */
+}
 
 body {
     min-height: 100vh;
-    /* background-image: url('../'); */
-    /* background-size: cover;
+    background-image: url('../img/war-zone-land-bg.png');
+    background-size: cover;
     background-repeat: no-repeat;
-    background-position: center; */
+    background-position: center;
     margin: 0;
     padding: 0;
+    /* overflow: hidden; */
+    text-align: center;
+}
+
+h1.game-title {
+    font-family: dirty-war;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 6px 5px 6px rgba(0, 0, 0, 0.88);
+    font-size: 80px;
+    letter-spacing: 8px;
 }

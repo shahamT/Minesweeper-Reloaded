@@ -1,0 +1,76 @@
+.board-container {
+    margin-inline: auto;
+    min-height: 300px;
+    margin-block: 20px;
+}
+
+.board {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-inline: auto;
+}
+
+.cell {
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.4);
+    border-width: 3px;
+    position: relative;
+}
+
+.cell:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+}
+
+.cell-img {
+    display: block;
+    height: 100%;
+    width: 100%;
+
+}
+
+.num-container {
+    position: absolute;
+    height:100%;
+    width:100%;
+    left: 0;
+    top: 0;
+}
+
+.num-container p {
+    font-size: 16px;
+    margin-block: 8px;
+   
+}
+
+.num1 {
+    color: rgb(0, 255, 42);
+}
+.num2 {
+    color: rgb(0, 26, 255);
+}
+
+.num3 {
+    color: rgb(162, 0, 255);
+}
+.num4 {
+    color: rgb(255, 0, 179);
+}
+.num5 {
+    color: rgb(255, 0, 0);
+}
+.num6 {
+    color: rgb(255, 0, 0);
+}
+.num7 {
+    color: rgb(255, 0, 0);
+}
+.num8 {
+    color: rgb(255, 0, 0);
+}
+
+.cell.flagged{
+    cursor: default;
+}

@@ -7,14 +7,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
   <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/board.css" />
 </head>
 
-<body onload="init()">
+<body onload="onInit()">
+  <div hidden class="welcome-modal">
+    <h1>Ready to enter the WAR-ZONE?</h1>
+    <div class="size-selection">
+      <h3>select field size</h3>
+      <div class="btns">
+      </div>
+      <div class="start-btn-container"></div>
+    </div>
+  </div>
 
+  <div class="game-title-container">
+    <h1 class="game-title">MINESWEEPER RELOADED</h1>
+  </div>
+  <div class="primary-buttons-container">
+    <button>test</button>
+    <button>test</button>
+    <button>test</button>
+  </div>
 
+  <div class="board-container">
 
+  </div>
+
+  <div class="secondary-buttons-container">
+    <button>test</button>
+    <button>test</button>
+    <button>test</button>
+  </div>
 
   <script src="js/util.js"></script>
+  <script src="js/global-v.js"></script>
+  <script src="js/generate-board.js"></script>
   <script src="js/main.js"></script>
 </body>
 
