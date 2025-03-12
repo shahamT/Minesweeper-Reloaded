@@ -1,24 +1,30 @@
 @font-face {
     font-family: 'dirty-war';
-    src: url('/fonts/dirty-war.otf') format('truetype');
+    src: url('../fonts/dirty-war.otf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
+
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 
 body {
     position: absolute;
     width: 100%;
     height: 100%;
-    left: 0px;
+    left: 0;
     transition: left 0.05s;
-
     min-height: 100vh;
-    background-image: url('/..img/war-zone-land-bg.png');
+    
+    background-image: url('../img/war-zone-land-bg.png');
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: top;
-    margin: 0;
-    padding: 0;
+    background-position: center;
+    
     overflow: hidden;
     text-align: center;
 }

@@ -53,8 +53,8 @@ const REMOVE_FLAG_SOUND = new Audio(`../audio/remove-flag.mp3`)
 //entities
 
 const MINE = 'MINE'
-const MINE_HTML_STR = `<img class="cell-img mine" src="../img/mine.png" alt="mine">`
+const MINE_HTML_STR = `<img class="cell-img mine" src="../img/mine.webp" alt="mine">`
 const HOLE = 'HOLE'
-const HOLE_HTML_STR = `<div class="num-container"> <p></p></div> <img class="cell-img hole" src="../img/hole.png" alt="hole">`
+const HOLE_HTML_STR = `<div class="num-container"> <p></p></div> <img class="cell-img hole" src="../img/hole.webp" alt="hole">`
 const FLAG = 'FLAG'
-const FLAG_HTML_STR = `<img class="cell-img flag" src="../img/flag.png" alt="flag">`
+const FLAG_HTML_STR = `<img class="cell-img flag" src="../img/flag.webp" alt="flag">`
