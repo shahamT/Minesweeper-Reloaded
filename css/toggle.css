@@ -1,0 +1,75 @@
+
+/* this is all from the internet. */
+/* it's not a code i wrote */
+/* i just needed a toogle button here */
+
+
+  /* Container for the toggle and text elements */
+  .toggle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-block-start: 16px;
+
+    gap: 20px;
+  }
+  
+  /* Text elements on either side of the toggle */
+  .toggle-text {
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-shadow: 6px 5px 6px rgba(0, 0, 0, 0.88);
+
+  }
+  
+  /* Toggle switch container */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  /* Hide the default checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider for the toggle switch */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+  
+  /* Change background color when checked */
+  input:checked + .slider {
+    background-color: brown;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+  

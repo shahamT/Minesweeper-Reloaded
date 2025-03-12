@@ -1,8 +1,4 @@
-.board-container {
-    margin-inline: auto;
-    min-height: 300px;
-    margin-block: 20px;
-}
+
 
 .board {
     border-collapse: collapse;
@@ -11,8 +7,8 @@
 }
 
 .cell {
-    width: 30px;
-    height: 30px;
+    width: 34px;
+    height: 34px;
     border-style: solid;
     border-color: rgba(255, 255, 255, 0.4);
     border-width: 3px;
@@ -24,6 +20,19 @@
     cursor: pointer;
 }
 
+.cell.revealed {
+    cursor: default;
+}
+
+.cell.revealed:hover {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.cell.exploded {
+    background-color: red;
+    cursor: default;
+}
+
 .cell-img {
     display: block;
     height: 100%;
@@ -33,8 +42,8 @@
 
 .num-container {
     position: absolute;
-    height:100%;
-    width:100%;
+    height: 100%;
+    width: 100%;
     left: 0;
     top: 0;
 }
@@ -42,35 +51,54 @@
 .num-container p {
     font-size: 16px;
     margin-block: 8px;
-   
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.88);
+    
+
 }
 
 .num1 {
-    color: rgb(0, 255, 42);
+    color: rgb(0, 0, 0);
 }
+
 .num2 {
-    color: rgb(0, 26, 255);
+    color: rgb(255, 230, 0);
+
+
 }
 
 .num3 {
-    color: rgb(162, 0, 255);
+    color: rgb(138, 84, 3);
 }
+
 .num4 {
-    color: rgb(255, 0, 179);
+    color: rgb(182, 3, 3);
 }
+
 .num5 {
-    color: rgb(255, 0, 0);
+    color: rgb(255, 0, 221);
 }
+
 .num6 {
     color: rgb(255, 0, 0);
 }
+
 .num7 {
     color: rgb(255, 0, 0);
 }
+
 .num8 {
     color: rgb(255, 0, 0);
 }
 
-.cell.flagged{
+.cell.flagged {
     cursor: default;
+}
+
+
+.unclickable{
+    cursor:default;
+}
+.unclickable:hover{
+    cursor:default;
+    background-color: rgba(255, 255, 255, 0);
 }

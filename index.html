@@ -8,41 +8,64 @@
   <title>Document</title>
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/board.css" />
+  <link rel="stylesheet" href="css/toggle.css" />
 </head>
 
 <body onload="onInit()">
-  <div hidden class="welcome-modal">
-    <h1>Ready to enter the WAR-ZONE?</h1>
-    <div class="size-selection">
-      <h3>select field size</h3>
-      <div class="btns">
+  <div hidden class="size-selection-modal-container">
+    <div class="size-selection-modal">
+      <h2>Ready to enter the WAR ZONE ?</h2>
+      <!-- took this from the internet -->
+      <div class="toggle-container">
+        <span class="toggle-text left-text">Regular mode</span>
+        <label class="switch">
+          <input type="checkbox" id="toggleSwitch" onclick="onLivesModeOn(this)">
+          <span class="slider"></span>
+        </label>
+        <span class="toggle-text right-text">3 lives mode</span>
       </div>
-      <div class="start-btn-container"></div>
+      <!-- until here -->
+      <div class="size-selection">
+        <h3>select field size</h3>
+        <div class="btns-container">
+        </div>
+      </div>
+
+
+
     </div>
   </div>
+  <div hidden class="game-container">
+    <div class="game-title-container">
+      <h1 class="game-title">MINESWEEPER RELOADED</h1>
+    </div>
 
-  <div class="game-title-container">
-    <h1 class="game-title">MINESWEEPER RELOADED</h1>
+    <div class="reset-btn-container">
+      <button hidden class="reset-btn" onclick="onReset()">RESET</button>
+    </div>
+
+    <div class="primary-buttons-container">
+      <button>test</button>
+      <button>test</button>
+      <button>test</button>
+    </div>
+
+
+    <div class="board-container">
+      <!-- table is going to be here -->
+    </div>
+
+    <div class="secondary-buttons-container">
+      <button>test</button>
+      <button>test</button>
+      <button>test</button>
+    </div>
   </div>
-  <div class="primary-buttons-container">
-    <button>test</button>
-    <button>test</button>
-    <button>test</button>
-  </div>
-
-  <div class="board-container">
-
-  </div>
-
-  <div class="secondary-buttons-container">
-    <button>test</button>
-    <button>test</button>
-    <button>test</button>
-  </div>
-
   <script src="js/util.js"></script>
   <script src="js/global-v.js"></script>
   <script src="js/generate-board.js"></script>
+  <script src="js/game-over.js"></script>
+  <script src="js/welcome-modal.js"></script>
   <script src="js/main.js"></script>
 </body>
 

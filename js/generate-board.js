@@ -18,12 +18,26 @@ function generateModelMat(level) {
 }
 
 
-function placeMinesInMat(level) {
+function placeMinesInMat(level, pos) {
+
+    //setting the initial minecount
     var minesCount = level.MINES
+
+    //getting random position
     while (minesCount > 0) {
         const i = getRndIntIncMax(0, level.SIZE - 1)
         const j = getRndIntIncMax(0, level.SIZE - 1)
 
+        //making sure the random position is not the selected cell or it's neighbors
+        var isPosValid = true
+        for (let row = pos.i - 1; row <= pos.i + 1; row++) {
+            for (let col = pos.j - 1; col <= pos.j + 1; col++) {
+                if (i === row && j === col) isPosValid = false
+            }
+        }
+        if (!isPosValid) continue
+
+        //setting a mine in case there wasn't any mine before
         if (gModelBoard[i][j].type === null) {
             gModelBoard[i][j].type = MINE
             minesCount--
