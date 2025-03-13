@@ -10,14 +10,14 @@ function onInit() {
     gGame.flaggedCount = 0
     gGame.secsPassed = 0
     gGame.isLivesModeOn = false
-    gGame.lives = 3
     gGame.previousReveales = []
 
     //show level selection modal
     elSiSelMoContainer.hidden = false
 
-    //hide reset button
-    elResetBtn.hidden = true
+    //set reset button general img
+    setGeneralFace(GENERAL_IMG.CALM)
+
 }
 
 function onCellClick(elCell, i, j) {
@@ -36,6 +36,12 @@ function onCellClick(elCell, i, j) {
         setMinesNegsCount()
     }
 
+    //if hint mode is on
+    if(gGame.isHintModeOn === true){
+        showHint(elCell,pos)
+        return
+    }
+
     //set the result of clicking an empty cell or a mine
     switch (cell.type) {
         case null:
@@ -49,6 +55,7 @@ function onCellClick(elCell, i, j) {
 
         case MINE:
             //is 3 lives mode on??
+            console.log("gGame.isLivesModeOn: ",gGame.isLivesModeOn )
             if (!gGame.isLivesModeOn) {
                 explodeGameOver(elCell, pos)
             } else explodeLoseLive(elCell, pos)
@@ -153,3 +160,6 @@ function createIdNameFromPos(pos) {
 }
 
 
+function setGeneralFace(img){
+    elResetBtn.innerHTML = img
+}

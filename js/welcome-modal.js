@@ -4,7 +4,7 @@ function renderSizeSelectionButtons() {
   var elbtnsContainer = document.querySelector('.size-selection .btns-container')
   var btnsStr = ''
   for (let i = 0; i < gLevels.length; i++) {
-      btnsStr += `<button class="size-btns" id="btn${i}"
+    btnsStr += `<button class="size-btns" id="btn${i}"
               onclick="onSizeSelectionButtonClick(${i})">${gLevels[i].SIZE} (${gLevels[i].DIFFICULTY})
               </button>`
   }
@@ -15,10 +15,6 @@ function renderSizeSelectionButtons() {
 function onSizeSelectionButtonClick(idx) {
   //set current level according to selection
   gGame.currLevel = gLevels[idx]
-
-  //hide modal and show game
-  elSiSelMoContainer.hidden = true
-  elGameContainer.hidden = false
 
   //start game
   onStart(gLevels[idx])
@@ -36,6 +32,20 @@ function onStart(level) {
   //turn game ON
   gGame.isOn = true
 
+
+
+  //show lives if this mode is ON
+  if (gGame.isLivesModeOn){
+    gGame.lives = 3
+    elLivesContainer.hidden = false
+    elLivesSpan.innerText = gGame.lives
+  } 
+    
+
+  //hide modal and show game
+  elSiSelMoContainer.hidden = true
+  elGameContainer.hidden = false
+
 }
 
 
@@ -43,7 +53,7 @@ function onLivesModeOn(el) {
   if (el.checked) {
     gGame.isLivesModeOn = true
   } else {
-    gGame.isLivesModeOn = true
+    gGame.isLivesModeOn = false
 
   }
 }

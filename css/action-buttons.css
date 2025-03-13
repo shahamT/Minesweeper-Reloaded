@@ -1,0 +1,67 @@
+.action-btns-set-container {
+    display: inline-block;
+    vertical-align: top;
+    width: 200px;
+}
+
+.left-aligned {
+    text-align: left;
+    float: left;
+    padding-left: 20px;
+
+}
+
+.right-aligned {
+    text-align: right;
+    float: right;
+    padding-right: 20px;
+
+}
+
+.action-btn-container {
+    vertical-align: center;
+    width: inherit;
+}
+
+.action-btn {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 14px;
+    border-radius: 12px;
+    background-color: var(--primary-btn-color);
+    cursor: pointer;
+    border-color: white;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.action-btn:hover {
+    background-color: var(--primary-btn-hover-color);
+}
+
+.tooltip {
+    display: inline;
+    background-color: antiquewhite;
+    padding-block: 4px;
+    padding-inline: 8px;
+    border-radius: 8px;
+}
+
+.tt-left-margin {
+    margin-left: 8px;
+}
+
+.tt-right-margin {
+    margin-right: 8px;
+}
+
+
+
+/* hints */
+.hint-selected {
+    background-color: rgb(240, 218, 23);
+}
+.hint-selected:hover {
+    background-color: rgb(235, 219, 77);
+}
+

@@ -1,9 +1,17 @@
 
 
+.board-container {
+    display: inline-block;
+    vertical-align: top;
+    margin-inline: 10px;
+}
+
 .board {
+    display: inline-block;
     border-collapse: collapse;
     border-spacing: 0;
-    margin-inline: auto;
+    
+    /* margin-inline: auto; */
 }
 
 .cell {
@@ -13,6 +21,7 @@
     border-color: rgba(255, 255, 255, 0.4);
     border-width: 3px;
     position: relative;
+    transition: background-color 0.2s;
 }
 
 .cell:hover {
@@ -31,6 +40,10 @@
 .cell.exploded {
     background-color: red;
     cursor: default;
+}
+
+.cell.hint-hover:hover{
+    background-color: rgba(255, 255, 0, 0.3);
 }
 
 .cell-img {

@@ -9,6 +9,9 @@
   <base href="./">
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/board.css" />
+  <link rel="stylesheet" href="css/size-selection-modal.css" />
+  <link rel="stylesheet" href="css/action-buttons.css" />
+  <link rel="stylesheet" href="css/top-game-info.css" />
   <link rel="stylesheet" href="css/toggle.css" />
 </head>
 
@@ -40,30 +43,62 @@
     <div class="game-title-container">
       <h1 class="game-title">MINESWEEPER RELOADED</h1>
     </div>
-
-    <div class="reset-btn-container">
-      <button hidden class="reset-btn" onclick="onReset()">RESET</button>
+    <div class="top-game-info-container">
+      <div class="lives-count-container">
+        <h3 hidden class="lives-count">lives: <span></span></h3>
+      </div>
+      <div class="reset-btn-container">
+        <button class="reset-btn action-btn" onclick="onReset()">RESET</button>
+      </div>
+      <div class="hints-btns-container">
+        <button id="hint1" class="action-btn hint-btn" onclick="onHintBtnClick(this,HINT1)"><div class="hint-img"></div></button>
+        <button id="hint2" class="action-btn hint-btn" onclick="onHintBtnClick(this,HINT2)"><div class="hint-img"></div></button>
+        <button id="hint3" class="action-btn hint-btn" onclick="onHintBtnClick(this,HINT3)"><div class="hint-img"></div></button>
+        <button class="action-btn hint-btn"><div class="mega-hint-img">Mega-Hint</div></button>
+      </div>
     </div>
+    
+    <div class="board-and-action-btns-container">
+      <div class="action-btns-set-container left-aligned">
+        <div class="action-btn-container">
+          <button class="action-btn" onmouseover="showTootip('tt1')" onmouseout="hideTootip('tt1')">test</button>
+          <div hidden id="tt1" class="tooltip tt-left-margin">button name</div>
+        </div>
+        <div class="action-btn-container">
+          <button class="action-btn" onmouseover="showTootip('tt2')" onmouseout="hideTootip('tt2')">test</button>
+          <div hidden id="tt2" class="tooltip tt-left-margin">button name</div>
+        </div>
+        <div class="action-btn-container">
+          <button class="action-btn" onmouseover="showTootip('tt3')" onmouseout="hideTootip('tt3')">test</button>
+          <div hidden id="tt3" class="tooltip tt-left-margin">button name</div>
 
-    <div class="primary-buttons-container">
-      <button>test</button>
-      <button>test</button>
-      <button>test</button>
-    </div>
+        </div>
+      </div>
 
+      <div class="board-container">
+        <!-- table is going to be here -->
+      </div>
 
-    <div class="board-container">
-      <!-- table is going to be here -->
-    </div>
+      <div class="action-btns-set-container right-aligned">
+        <div class="action-btn-container">
+          <div hidden id="tt4" class="tooltip tt-right-margin">button name</div>
+          <button class="action-btn" onmouseover="showTootip('tt4')" onmouseout="hideTootip('tt4')">test</button>
+        </div>
+        <div class="action-btn-container">
+          <div hidden id="tt5" class="tooltip tt-right-margin">button name</div>
+          <button class="action-btn" onmouseover="showTootip('tt5')" onmouseout="hideTootip('tt5')">test</button>
+        </div>
+        <div class="action-btn-container">
+          <div hidden id="tt6" class="tooltip tt-right-margin">button name</div>
+          <button class="action-btn" onmouseover="showTootip('tt6')" onmouseout="hideTootip('tt6')">test</button>
+        </div>
+      </div>
 
-    <div class="secondary-buttons-container">
-      <button>test</button>
-      <button>test</button>
-      <button>test</button>
     </div>
   </div>
   <script src="js/util.js"></script>
   <script src="js/global-v.js"></script>
+  <script src="js/action-btns.js"></script>
   <script src="js/generate-board.js"></script>
   <script src="js/game-over.js"></script>
   <script src="js/welcome-modal.js"></script>

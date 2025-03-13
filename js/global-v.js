@@ -21,6 +21,7 @@ var gGame = {
     secsPassed: 0,
     isLivesModeOn: false,
     lives: 3,
+    isHintModeOn: false,
     previousReveales: []
 }
 
@@ -30,6 +31,8 @@ const gElBoardContainer = document.querySelector(`.board-container`)
 const elSiSelMoContainer = document.querySelector(`.size-selection-modal-container`)
 const elGameContainer = document.querySelector(`.game-container`)
 const elResetBtn = document.querySelector(`.reset-btn`)
+const elLivesContainer = document.querySelector(`.lives-count`)
+const elLivesSpan = document.querySelector(`.lives-count span`)
 
 //levels
 
@@ -40,15 +43,29 @@ const gLevels = [
     { DIFFICULTY: 'Immpossible', SIZE: 15, MINES: 70 }
 ]
 
+//hints
+var HINT1 = {used: false, element: document.querySelector(`#hint1`)}
+var HINT2 = {used: false, element: document.querySelector(`#hint2`)}
+var HINT3 = {used: false, element: document.querySelector(`#hint3`)}
+var gCurrSelectedHint = null
+
+
 //sounds
 const EXPLOSION_SOUND = new Audio(`audio/explosion.mp3`)
 const DIG_SOUND = new Audio(`audio/dig.mp3`)
 const FLAG_SOUND = new Audio(`audio/flag.mp3`)
-const REMOVE_FLAG_SOUND = new Audio(`../audio/remove-flag.mp3`)
+const REMOVE_FLAG_SOUND = new Audio(`audio/remove-flag.mp3`)
 
 
 // imgs
-
+const GENERAL_IMG = {
+    HAPPY: `<img src="img/general-happy.png" alt="general-happy">`,
+    CALM: `<img src="img/general-calm.png" alt="general-calm">`,
+    ANGRY:`<img src="img/general-angry.png" alt="general-angry">')`
+}
+const ACTIONS_IMG = {
+    HINT: `<img src="img/hint.png" alt="hint">`
+}
 
 //entities
 

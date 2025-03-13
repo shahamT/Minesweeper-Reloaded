@@ -31,12 +31,31 @@ function explodeGameOver(elCell, pos) {
     }
     EXPLOSION_SOUND.play()
     shakeItAll()
-    elResetBtn.hidden = false
 
+    //set reset button general img
+    setGeneralFace(GENERAL_IMG.ANGRY)
 }
 
 function explodeLoseLive(elCell, pos) {
     gGame.lives--
+    elLivesSpan.innerText = gGame.lives
+
+    if (gGame.lives > 0) {
+        //explode cell
+        elCell.innerHTML = MINE_HTML_STR
+        elCell.classList.add(`exploded`)
+        EXPLOSION_SOUND.play()
+        shakeItAll()
+
+        var backToLive = setTimeout(()=> {
+            elCell.innerHTML = ''
+            elCell.classList.remove(`exploded`)
+        },2000)
+
+    }
+
+
+
     if (gGame.lives === 0) {
         explodeGameOver(elCell, pos)
     }
@@ -65,8 +84,8 @@ function onWin() {
         }
     }
 
-    //show reset btn
-    elResetBtn.hidden = false
+    //set reset button general img
+    setGeneralFace(GENERAL_IMG.HAPPY)
 }
 
 function onReset() {
@@ -77,7 +96,7 @@ function onReset() {
 function shakeItAll() {
     var count = 0
     var shake = setInterval(() => {
-        if(count> 9){
+        if (count > 9) {
             clearInterval(shake)
             shake = null
         }

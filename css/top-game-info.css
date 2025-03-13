@@ -1,0 +1,49 @@
+.top-game-info-container{
+    height: 100px;
+}
+
+
+
+.reset-btn-container {
+display: inline-block;
+}
+
+.reset-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.reset-btn img {
+    height: 72px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+.lives-count-container{
+    display: inline-block;
+vertical-align: top;
+}
+
+
+.hints-btns-container{
+    display: inline-block;
+    vertical-align: top;
+}
+.hint-btn {
+    height: 50px;
+    width: 50px;
+    padding: 3px;
+}
+
+.hint-img {
+    height: 100%;
+    width: 100%;
+    background-image: url('../img/hint.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
