@@ -30,15 +30,19 @@ function onCellClick(elCell, i, j) {
         !gGame.isOn
     ) return
 
-    //if it's the first click set the mines correctly
+    //if it's the first click set the mines correctly + allow hints
     if (gGame.revealedCount === 0) {
         placeMinesInMat(gGame.currLevel, pos)
         setMinesNegsCount()
+
+        HINT1.element.classList.remove(`btn-disabled`)
+        HINT2.element.classList.remove(`btn-disabled`)
+        HINT3.element.classList.remove(`btn-disabled`)
     }
 
     //if hint mode is on
-    if(gGame.isHintModeOn === true){
-        showHint(elCell,pos)
+    if (gGame.isHintModeOn === true) {
+        showHint(pos)
         return
     }
 
@@ -55,7 +59,7 @@ function onCellClick(elCell, i, j) {
 
         case MINE:
             //is 3 lives mode on??
-            console.log("gGame.isLivesModeOn: ",gGame.isLivesModeOn )
+            console.log("gGame.isLivesModeOn: ", gGame.isLivesModeOn)
             if (!gGame.isLivesModeOn) {
                 explodeGameOver(elCell, pos)
             } else explodeLoseLive(elCell, pos)
@@ -103,30 +107,7 @@ function revealHole(pos) {
     elCell.innerHTML = HOLE_HTML_STR
     elCell.classList.add(`revealed`)
 
-    var elNum = document.querySelector(`${cellId} p`)
-    if (cell.minesAroundCount !== 0) {
-        elNum.innerText = cell.minesAroundCount
-    }
-
-    switch (cell.minesAroundCount) {
-        case 1: elNum.classList.add(`num1`)
-            break
-        case 2: elNum.classList.add(`num2`)
-            break
-        case 3: elNum.classList.add(`num3`)
-            break
-        case 4: elNum.classList.add(`num4`)
-            break
-        case 5: elNum.classList.add(`num5`)
-            break
-        case 6: elNum.classList.add(`num6`)
-            break
-        case 7: elNum.classList.add(`num7`)
-            break
-        case 8: elNum.classList.add(`num8`)
-            break
-    }
-
+    ShowNumOfMineNegs(pos, cellId)
 }
 
 function revealNegsHoles(pos) {
@@ -160,6 +141,73 @@ function createIdNameFromPos(pos) {
 }
 
 
-function setGeneralFace(img){
+function setGeneralFace(img) {
     elResetBtn.innerHTML = img
+}
+
+
+function revealCellTemp(pos, time, elCell = undefined) {
+    if (!elCell) {
+        const cellId = createIdNameFromPos(pos)
+        elCell = document.querySelector(cellId)
+    }
+    const cell = gModelBoard[pos.i][pos.j]
+    const cellId = createIdNameFromPos(pos)
+
+    switch (cell.type) {
+        case null:
+            elCell.innerHTML = HOLE_HTML_STR
+            ShowNumOfMineNegs(pos, cellId)
+            break
+        case MINE:
+            elCell.innerHTML = MINE_HTML_STR
+            break
+    }
+    elCell.classList.add(`revealed`)
+    
+    //pause the game
+    gGame.isOn = false
+
+    //hide cell back after x time
+    var revealTime = setTimeout(() => {
+        elCell.innerHTML = ``
+        elCell.classList.remove(`revealed`)
+        
+        //game is back
+        gGame.isOn = true
+
+        clearTimeout(revealTime)
+        revealTime = null
+    }, time)
+
+
+}
+
+function ShowNumOfMineNegs(pos, cellId) {
+
+    const cell = gModelBoard[pos.i][pos.j]
+    var elNum = document.querySelector(`${cellId} p`)
+
+    if (cell.minesAroundCount !== 0) {
+        elNum.innerText = cell.minesAroundCount
+    }
+
+    switch (cell.minesAroundCount) {
+        case 1: elNum.classList.add(`num1`)
+            break
+        case 2: elNum.classList.add(`num2`)
+            break
+        case 3: elNum.classList.add(`num3`)
+            break
+        case 4: elNum.classList.add(`num4`)
+            break
+        case 5: elNum.classList.add(`num5`)
+            break
+        case 6: elNum.classList.add(`num6`)
+            break
+        case 7: elNum.classList.add(`num7`)
+            break
+        case 8: elNum.classList.add(`num8`)
+            break
+    }
 }

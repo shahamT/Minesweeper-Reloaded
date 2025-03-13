@@ -17,9 +17,16 @@ function onHintBtnClick(elHintBtn, hintNum) {
     //TODO show the user some message...
 
     if (hintNum.used === false) {
-        elHintBtn.classList.toggle(`hint-selected`)
-        gGame.isHintModeOn = !gGame.isHintModeOn
-        // gCurrSelectedHint = hintNum
+        if (gCurrSelectedHint !== null && gCurrSelectedHint !== hintNum) { //if another hint button is set as selected 
+            gCurrSelectedHint.element.classList.toggle(`hint-selected`) //turn off prev selectd hint
+            gCurrSelectedHint = hintNum
+            elHintBtn.classList.toggle(`hint-selected`)
+            //in this case hint mode is still on so i don't need to toggle it
+        } else {
+            elHintBtn.classList.toggle(`hint-selected`)
+            gCurrSelectedHint = hintNum
+            gGame.isHintModeOn = !gGame.isHintModeOn
+        }
     }
 
 
@@ -28,9 +35,24 @@ function onHintBtnClick(elHintBtn, hintNum) {
     //TODO finish this design
 }
 
-function showHint() {
-    elHintBtn.classList.remove(`hint-selected`)
-    
+function showHint(pos) {
+    gCurrSelectedHint.element.classList.remove(`hint-selected`)
+    gCurrSelectedHint.element.classList.add(`btn-disabled`)
     gGame.isHintModeOn = false
+
+    for (let i = pos.i - 1; i <= pos.i + 1; i++) {
+        for (let j = pos.j - 1; j <= pos.j + 1; j++) {
+
+            if (i < 0 || j < 0 ||
+                i > gModelBoard.length - 1 ||
+                j > gModelBoard[i].length - 1) {
+                continue
+            }
+            if (gModelBoard[i][j].revealed === false) {
+                revealCellTemp({ i, j }, 1500)
+            }
+        }
+    }
+    gCurrSelectedHint = null //clearing the selected hint for next use
 
 }

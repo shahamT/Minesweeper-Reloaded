@@ -64,7 +64,11 @@ const GENERAL_IMG = {
     ANGRY:`<img src="img/general-angry.png" alt="general-angry">')`
 }
 const ACTIONS_IMG = {
-    HINT: `<img src="img/hint.png" alt="hint">`
+    HINT: `<img src="img/hint.png" alt="hint">`,
+    UNDO: `<img src="img/undo.png" alt="undo">`,
+    HELMET: `<img src="img/undo.png" alt="helmet">`,
+    UNDO: `<img src="img/undo.png" alt="undo">`,
+    UNDO: `<img src="img/undo.png" alt="undo">`,
 }
 
 //entities

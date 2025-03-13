@@ -6,9 +6,9 @@
 }
 
 :root {
-    --primary-btn-color: rgb(165, 42, 42);
-    --primary-btn-hover-color: rgb(177, 68, 68);
-  }
+    --primary-btn-color: rgba(165, 116, 42, 0.6);
+    --primary-btn-hover-color: rgba(165, 116, 42, 1);
+}
 
 
 html {
@@ -27,29 +27,21 @@ body {
     left: 0;
     transition: left 0.05s;
     min-height: 100vh;
-    
+
     background-image: url('../img/war-zone-land-bg.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    
-    overflow: hidden;
+
+    /* overflow: hidden; */
     text-align: center;
 }
 
-button{
+button {
     transition: background-color 0.3s;
 }
 
-.btn-disabled{
-    background-color: grey;
-    cursor: not-allowed;
-}
-.btn-disabled:hover{
-    background-color: grey;
-}
-
-.shake{
+.shake {
     left: 20px;
 }
 
@@ -63,13 +55,12 @@ h1.game-title {
 }
 
 
-
-
-.board-and-action-btns-container{
-  
+.board-and-action-btns-container {
+    display: table;
+    margin-inline: auto;
 }
 
 /* with the help of google (= */
 [hidden] {
     display: none !important;
-  }
+}

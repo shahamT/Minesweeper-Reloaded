@@ -1,18 +1,19 @@
+
+
 .action-btns-set-container {
     display: inline-block;
     vertical-align: top;
-    width: 200px;
 }
 
 .left-aligned {
-    text-align: left;
+    text-align: right;
     float: left;
     padding-left: 20px;
 
 }
 
 .right-aligned {
-    text-align: right;
+    text-align: left;
     float: right;
     padding-right: 20px;
 
@@ -21,6 +22,7 @@
 .action-btn-container {
     vertical-align: center;
     width: inherit;
+    position: relative;
 }
 
 .action-btn {
@@ -30,32 +32,123 @@
     border-radius: 12px;
     background-color: var(--primary-btn-color);
     cursor: pointer;
-    border-color: white;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.7);
+    border-color: rgba(255, 255, 255,0.5);
     border-style: solid;
-    border-width: 2px;
+    border-width: 3px;
+    padding: 6px;
 }
+
 
 .action-btn:hover {
     background-color: var(--primary-btn-hover-color);
+    border-color: rgb(206, 170, 136);
+}
+
+.btn-disabled{
+    background-color: rgba(128, 128, 128,0.7);
+    cursor: not-allowed;
+}
+.btn-disabled:hover{
+    background-color: rgba(128, 128, 128,0.7);
+    border-color: rgba(255, 255, 255,0.5);
 }
 
 .tooltip {
-    display: inline;
-    background-color: antiquewhite;
-    padding-block: 4px;
-    padding-inline: 8px;
+    position: absolute;
+    z-index: 4;
+    background-color: rgb(83, 51, 10);
+    padding-block: 8px;
+    padding-inline: 16px;
     border-radius: 8px;
+    white-space: nowrap;
 }
 
-.tt-left-margin {
-    margin-left: 8px;
+.tt-left {
+left: calc(100% + 12px) ;
+top: 20px
 }
 
-.tt-right-margin {
-    margin-right: 8px;
+.tt-right {
+    right: calc(100% + 12px) ;
+    top: 20px
+}
+
+.tt-top {
+    top: -30px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.tt-bottom {
+    top: 110px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.tooltip p {
+    margin-block: 0px;
+    color: white;
 }
 
 
+
+
+.safe-click-img {
+    height: 100%;
+    width: 100%;
+    background-image: url('../img/helmet.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.mine-exterminator-img{
+    height: 100%;
+    width: 100%;
+    background-image: url('../img/Explosion.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.undo-img{
+    height: 100%;
+    width: 100%;
+    background-image: url('../img/undo.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+
+.hints-btns-container{
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 20px;
+}
+
+.hint-btn-container{
+    display: inline-block;
+    position: relative;
+}
+
+.hint-btn {
+    height: 50px;
+    width: 50px;
+    padding: 3px;
+    margin-inline: 4px;
+}
+
+.hint-img {
+    height: 100%;
+    width: 100%;
+    background-image: url('../img/hint.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
 /* hints */
 .hint-selected {
@@ -65,3 +158,11 @@
     background-color: rgb(235, 219, 77);
 }
 
+.mega-hint-img {
+    height: 100%;
+    width: 100%;
+    background-image: url('../img/map.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}

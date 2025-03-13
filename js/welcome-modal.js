@@ -32,19 +32,22 @@ function onStart(level) {
   //turn game ON
   gGame.isOn = true
 
-
-
   //show lives if this mode is ON
   if (gGame.isLivesModeOn){
     gGame.lives = 3
     elLivesContainer.hidden = false
     elLivesSpan.innerText = gGame.lives
   } 
-    
 
+  //reset hint buttons to be disabled
+  HINT1.element.classList.add(`btn-disabled`)
+  HINT2.element.classList.add(`btn-disabled`)
+  HINT3.element.classList.add(`btn-disabled`)
+    
   //hide modal and show game
   elSiSelMoContainer.hidden = true
   elGameContainer.hidden = false
+
 
 }
 

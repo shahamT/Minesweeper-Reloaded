@@ -1,11 +1,12 @@
+
 .top-game-info-container{
     height: 100px;
 }
 
 
-
 .reset-btn-container {
 display: inline-block;
+position: relative;
 }
 
 .reset-btn {
@@ -26,24 +27,4 @@ display: inline-block;
 .lives-count-container{
     display: inline-block;
 vertical-align: top;
-}
-
-
-.hints-btns-container{
-    display: inline-block;
-    vertical-align: top;
-}
-.hint-btn {
-    height: 50px;
-    width: 50px;
-    padding: 3px;
-}
-
-.hint-img {
-    height: 100%;
-    width: 100%;
-    background-image: url('../img/hint.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
 }
