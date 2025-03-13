@@ -23,6 +23,29 @@ function getRandomColor() {
 }
 
 
+// ==============================================================
+
+// // create a matrix of objects
+
+// var mat = []
+// for (let i = 0; i < matrix.length; i++) {
+//   mat = []
+//   for (let j = 0; j < matrix[i].length; j++) {
+//     mat[i] = {}
+//   }
+// }
+
+// ==============================================================
+
+// //run over a Matrix Loop
+
+// for (let i = 0; i < matrix.length; i++) {
+//   for (let j = 0; j < matrix[i].length; j++) {
+//   }
+// }
+
+// ==============================================================
+
 //neighbours loop
 
 // // pos = {i,j}
@@ -40,3 +63,5 @@ function getRandomColor() {
 //        }
 //     }
 // }
+
+// ==============================================================

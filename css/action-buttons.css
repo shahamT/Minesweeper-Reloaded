@@ -62,6 +62,7 @@
     padding-inline: 16px;
     border-radius: 8px;
     white-space: nowrap;
+    box-shadow: 0px 0px 12px rgba(2, 2, 3, 0.7);
 }
 
 .tt-left {
@@ -116,6 +117,33 @@ top: 20px
     height: 100%;
     width: 100%;
     background-image: url('../img/undo.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.moon-img{
+    height: 100%;
+    width: 100%;
+    background-image: url('../img/moon.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.sun-img{
+    height: 100%;
+    width: 100%;
+    background-image: url('../img/sun.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.board-img{
+    height: 100%;
+    width: 100%;
+    background-image: url('../img/board.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

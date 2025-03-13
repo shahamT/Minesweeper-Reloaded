@@ -21,9 +21,16 @@ var gGame = {
     secsPassed: 0,
     isLivesModeOn: false,
     lives: 3,
+    safeClicks: 3,
     isHintModeOn: false,
+    megaHints: 1,
+    isMegaHintOn: false,
+    exterminators: 1,
     previousReveales: []
 }
+
+var gTimer = 0
+var gTimerInterval
 
 // elements
 const elBody = document.querySelector(`body`)
@@ -32,7 +39,13 @@ const elSiSelMoContainer = document.querySelector(`.size-selection-modal-contain
 const elGameContainer = document.querySelector(`.game-container`)
 const elResetBtn = document.querySelector(`.reset-btn`)
 const elLivesContainer = document.querySelector(`.lives-count`)
-const elLivesSpan = document.querySelector(`.lives-count span`)
+const elLivesSpan = document.querySelector(`.lives-count .lives`)
+const elSafeClickSpan = document.querySelector(`#tt1 span`)
+const elSafeClickBtn = document.querySelector(`#ab1`)
+const elExterminatorBtn = document.querySelector(`#ab2`)
+const elUndoBtn = document.querySelector(`#ab3`)
+const elTimeCount = document.querySelector(`.time-count`)
+const elMegaHintBtn = document.querySelector(`#mhbtn1`)
 
 //levels
 
@@ -48,6 +61,7 @@ var HINT1 = {used: false, element: document.querySelector(`#hint1`)}
 var HINT2 = {used: false, element: document.querySelector(`#hint2`)}
 var HINT3 = {used: false, element: document.querySelector(`#hint3`)}
 var gCurrSelectedHint = null
+var gMeHitRange = []
 
 
 //sounds
@@ -55,6 +69,9 @@ const EXPLOSION_SOUND = new Audio(`audio/explosion.mp3`)
 const DIG_SOUND = new Audio(`audio/dig.mp3`)
 const FLAG_SOUND = new Audio(`audio/flag.mp3`)
 const REMOVE_FLAG_SOUND = new Audio(`audio/remove-flag.mp3`)
+const WOW_SOUND = new Audio(`audio/wow.mp3`)
+const HINT_SOUND = new Audio(`audio/hint.mp3`)
+const RELIEF_SOUND = new Audio(`audio/relief.mp3`)
 
 
 // imgs

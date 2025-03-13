@@ -18,12 +18,19 @@ function onInit() {
     //set reset button general img
     setGeneralFace(GENERAL_IMG.CALM)
 
+    //reset timer
+    gTimer = 0
+    elTimeCount.innerText = gTimer
+
 }
 
 function onCellClick(elCell, i, j) {
     const cell = gModelBoard[i][j]
     const pos = { i, j }
 
+    console.log("gGame.isMegaHintOn: ", gGame.isMegaHintOn)
+    console.log("gGame.megaHints: ", gGame.megaHints)
+    
     //cases that are non clickable
     if (cell.flagged ||
         cell.revealed ||
@@ -34,15 +41,19 @@ function onCellClick(elCell, i, j) {
     if (gGame.revealedCount === 0) {
         placeMinesInMat(gGame.currLevel, pos)
         setMinesNegsCount()
+        activateActionBtns()
 
-        HINT1.element.classList.remove(`btn-disabled`)
-        HINT2.element.classList.remove(`btn-disabled`)
-        HINT3.element.classList.remove(`btn-disabled`)
     }
 
     //if hint mode is on
     if (gGame.isHintModeOn === true) {
         showHint(pos)
+        return
+    }
+
+    //if Mega-hint mode is on
+    if (gGame.isMegaHintOn === true) {
+        megahintFlow(pos)
         return
     }
 
@@ -59,7 +70,6 @@ function onCellClick(elCell, i, j) {
 
         case MINE:
             //is 3 lives mode on??
-            console.log("gGame.isLivesModeOn: ", gGame.isLivesModeOn)
             if (!gGame.isLivesModeOn) {
                 explodeGameOver(elCell, pos)
             } else explodeLoseLive(elCell, pos)
@@ -140,11 +150,9 @@ function createIdNameFromPos(pos) {
     return `#c-${pos.i}-${pos.j}`
 }
 
-
 function setGeneralFace(img) {
     elResetBtn.innerHTML = img
 }
-
 
 function revealCellTemp(pos, time, elCell = undefined) {
     if (!elCell) {
@@ -164,7 +172,7 @@ function revealCellTemp(pos, time, elCell = undefined) {
             break
     }
     elCell.classList.add(`revealed`)
-    
+
     //pause the game
     gGame.isOn = false
 
@@ -172,7 +180,7 @@ function revealCellTemp(pos, time, elCell = undefined) {
     var revealTime = setTimeout(() => {
         elCell.innerHTML = ``
         elCell.classList.remove(`revealed`)
-        
+
         //game is back
         gGame.isOn = true
 
@@ -191,6 +199,9 @@ function ShowNumOfMineNegs(pos, cellId) {
     if (cell.minesAroundCount !== 0) {
         elNum.innerText = cell.minesAroundCount
     }
+
+    //reset the color in case it has previous color
+    elNum.classList.remove(`num1`, `num2`, `num3`, `num4`, `num5`, `num6`, `num7`, `num8`)
 
     switch (cell.minesAroundCount) {
         case 1: elNum.classList.add(`num1`)
@@ -211,3 +222,26 @@ function ShowNumOfMineNegs(pos, cellId) {
             break
     }
 }
+
+function runTimer() {
+    gTimerInterval = setInterval(() => {
+        gTimer++
+        elTimeCount.innerText = gTimer
+    }, 1000)
+}
+
+function stopTimer() {
+    clearInterval(gTimerInterval)
+    gTimerInterval = null
+    elTimeCount.innerText = gTimer
+}
+
+function activateActionBtns() {
+    HINT1.element.classList.remove(`btn-disabled`)
+    HINT2.element.classList.remove(`btn-disabled`)
+    HINT3.element.classList.remove(`btn-disabled`)
+    elExterminatorBtn.classList.remove(`btn-disabled`)
+    elMegaHintBtn.classList.remove(`btn-disabled`)
+}
+
+

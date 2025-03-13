@@ -19,6 +19,7 @@
   <div hidden class="size-selection-modal-container">
     <div class="size-selection-modal">
       <h2>Ready to enter the WAR ZONE ?</h2>
+
       <!-- took this from the internet -->
       <div class="toggle-container">
         <span class="toggle-text left-text">Regular mode</span>
@@ -29,6 +30,7 @@
         <span class="toggle-text right-text">3 lives mode</span>
       </div>
       <!-- until here -->
+
       <div class="size-selection">
         <h3>select field size</h3>
         <div class="btns-container">
@@ -40,54 +42,65 @@
     </div>
   </div>
   <div hidden class="game-container">
+
     <div class="game-title-container">
       <h1 class="game-title">MINESWEEPER RELOADED</h1>
     </div>
+
     <div class="top-game-info-container">
+
       <div class="lives-count-container">
-        <h3 hidden class="lives-count">lives: <span></span></h3>
+        <h3 hidden class="lives-count">lives <span class="colon">:</span> <span class="lives"></span></h3>
       </div>
+
       <div class="reset-btn-container">
-        <button class="reset-btn action-btn" onclick="onReset()" onmouseover="showTootip('tt0')" onmouseout="hideTootip('tt0')">RESET</button>
+        <button class="reset-btn action-btn" onclick="onReset()" onmouseover="showTootip('tt0')"
+          onmouseout="hideTootip('tt0')">RESET</button>
         <div hidden id="tt0" class="tooltip tt-bottom">
           <p>Reset Game</p>
         </div>
       </div>
-      <!-- <div class="hints-btns-container">
-        <button id="hint1" class="action-btn hint-btn" onclick="onHintBtnClick(this,HINT1)"><div class="hint-img"></div></button>
-        <button id="hint2" class="action-btn hint-btn" onclick="onHintBtnClick(this,HINT2)"><div class="hint-img"></div></button>
-        <button id="hint3" class="action-btn hint-btn" onclick="onHintBtnClick(this,HINT3)"><div class="hint-img"></div></button>
-        <button class="action-btn hint-btn"><div class="mega-hint-img"></div></button>
-      </div> -->
+
+      <div class="timer-container">
+        <h3 class="timer">Timer <span class="colon">:</span>
+          <div class="time-count-container"><span class="time-count">0</span></div>
+        </h3>
+      </div>
+
     </div>
 
     <div class="board-and-action-btns-container">
       <div class="action-btns-set-container left-aligned">
+
         <div class="action-btn-container">
           <div hidden id="tt1" class="tooltip tt-left">
-            <p>Safe Click</p>
+            <p>Safe Click (<span>x</span> more to go)</p>
           </div>
-          <button class="action-btn" onmouseover="showTootip('tt1')" onmouseout="hideTootip('tt1')">
+          <button id="ab1" class="action-btn" onclick="onSafeClick()" onmouseover="showTootip('tt1')"
+            onmouseout="hideTootip('tt1')">
             <div class="safe-click-img"></div>
           </button>
         </div>
+
         <div class="action-btn-container">
           <div hidden id="tt2" class="tooltip tt-left">
+            <p>Mine Exterminator</p>
+          </div>
+          <button id="ab2" class="action-btn" onclick="onExterminatorClick()" onmouseover="showTootip('tt2')"
+            onmouseout="hideTootip('tt2')">
+            <div class="mine-exterminator-img">
+          </button>
+        </div>
+
+        <div class="action-btn-container">
+          <div hidden id="tt3" class="tooltip tt-left">
             <p>Undo Last Reveal</p>
           </div>
-          <button class="action-btn" onmouseover="showTootip('tt2')" onmouseout="hideTootip('tt2')">
+          <button id="ab3" class="action-btn" onmouseover="showTootip('tt3')" onmouseout="hideTootip('tt3')">
             <div class="undo-img">
           </button>
         </div>
-        <div class="action-btn-container">
-          <div hidden id="tt3" class="tooltip tt-left">
-            <p>Mine Exterminator</p>
-          </div>
-          <button class="action-btn" onmouseover="showTootip('tt3')" onmouseout="hideTootip('tt3')">
-            <div class="mine-exterminator-img">
-          </button>
 
-        </div>
       </div>
 
       <div class="board-container">
@@ -95,62 +108,80 @@
       </div>
 
       <div class="action-btns-set-container right-aligned">
+
         <div class="action-btn-container">
-          <button class="action-btn" onmouseover="showTootip('tt4')" onmouseout="hideTootip('tt4')"></button>
+          <button id="ab4" class="action-btn" onmouseover="showTootip('tt4')" onmouseout="hideTootip('tt4')">
+            <div class="moon-img"></div>
+          </button>
           <div hidden id="tt4" class="tooltip tt-right">
-            <p>button name</p>
+            <p>Dark-Mode</p>
           </div>
         </div>
+
         <div class="action-btn-container">
-          <button class="action-btn" onmouseover="showTootip('tt5')" onmouseout="hideTootip('tt5')"></button>
+          <button id="ab5" class="action-btn" onmouseover="showTootip('tt5')" onmouseout="hideTootip('tt5')">
+            <div class="board-img"></div>
+          </button>
           <div hidden id="tt5" class="tooltip tt-right">
-            <p>button name</p>
+            <p>Score-Board</p>
           </div>
         </div>
+        <!-- 
         <div class="action-btn-container">
-          <button class="action-btn" onmouseover="showTootip('tt6')" onmouseout="hideTootip('tt6')"></button>
+          <button id="ab6" class="action-btn" onmouseover="showTootip('tt6')" onmouseout="hideTootip('tt6')"></button>
           <div hidden id="tt6" class="tooltip tt-right">
             <p>button name</p>
           </div>
-        </div>
+        </div> -->
+
       </div>
     </div>
 
     <div class="hints-btns-container">
+
       <div class="hint-btn-container">
         <div hidden id="tt7" class="tooltip tt-top">
-          <p>Hint1</p>
+          <p>Hint</p>
         </div>
-        <button id="hint1" class="action-btn hint-btn" onclick="onHintBtnClick(this,HINT1)" onmouseover="showTootip('tt7')" onmouseout="hideTootip('tt7')">
+        <button id="hint1" class="action-btn hint-btn" onclick="onHintBtnClick(this,HINT1)"
+          onmouseover="showTootip('tt7')" onmouseout="hideTootip('tt7')">
           <div class="hint-img"></div>
         </button>
       </div>
+
       <div class="hint-btn-container">
         <div hidden id="tt8" class="tooltip tt-top">
-          <p>Hint2</p>
+          <p>Hint</p>
         </div>
-        <button id="hint2" class="action-btn hint-btn" onclick="onHintBtnClick(this,HINT2)" onmouseover="showTootip('tt8')" onmouseout="hideTootip('tt8')">
+        <button id="hint2" class="action-btn hint-btn" onclick="onHintBtnClick(this,HINT2)"
+          onmouseover="showTootip('tt8')" onmouseout="hideTootip('tt8')">
           <div class="hint-img"></div>
         </button>
       </div>
+
       <div class="hint-btn-container">
         <div hidden id="tt9" class="tooltip tt-top">
-          <p>Hint3</p>
+          <p>Hint</p>
         </div>
-        <button id="hint3" class="action-btn hint-btn" onclick="onHintBtnClick(this,HINT3)" onmouseover="showTootip('tt9')" onmouseout="hideTootip('tt9')">
+        <button id="hint3" class="action-btn hint-btn" onclick="onHintBtnClick(this,HINT3)"
+          onmouseover="showTootip('tt9')" onmouseout="hideTootip('tt9')">
           <div class="hint-img"></div>
         </button>
       </div>
+
       <div class="hint-btn-container">
         <div hidden id="tt10" class="tooltip tt-top">
           <p>Mega-Hint</p>
         </div>
-        <button class="action-btn hint-btn">
-          <div class="mega-hint-img" onmouseover="showTootip('tt10')" onmouseout="hideTootip('tt10')"></div>
+        <button id="mhbtn1" class="action-btn hint-btn">
+          <div class="mega-hint-img" onclick="onMegaHintBtnClick()" onmouseover="showTootip('tt10')"
+            onmouseout="hideTootip('tt10')"></div>
         </button>
       </div>
+
     </div>
   </div>
+
   <script src="js/util.js"></script>
   <script src="js/global-v.js"></script>
   <script src="js/action-btns.js"></script>
@@ -158,6 +189,7 @@
   <script src="js/game-over.js"></script>
   <script src="js/welcome-modal.js"></script>
   <script src="js/main.js"></script>
+
 </body>
 
 </html>

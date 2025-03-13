@@ -1,17 +1,17 @@
-
-.top-game-info-container{
+.top-game-info-container {
     height: 100px;
 }
 
 
 .reset-btn-container {
-display: inline-block;
-position: relative;
+    display: inline-block;
+    position: relative;
 }
 
 .reset-btn {
     position: relative;
     overflow: hidden;
+    margin-bottom: 0px;
 }
 
 .reset-btn img {
@@ -24,7 +24,62 @@ position: relative;
 
 
 
-.lives-count-container{
+.lives-count-container {
     display: inline-block;
-vertical-align: top;
+    vertical-align: top;
+    width: 180px;
+    text-align: left;
+    color: rgba(255, 255, 255, 1);
+    font-family: dirty-war;
+    font-size: 24px;
+    text-shadow: 6px 5px 6px rgba(0, 0, 0, 0.88);
+    letter-spacing: 3px;
+    margin-right: 10px;
+}
+
+.lives-count-container .colon {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 36px;
+}
+
+.lives-count-container .lives {
+    color: rgb(243, 214, 187);
+}
+
+.lives-count-container h3 {
+    margin-block: 0px;
+}
+
+
+.timer-container {
+    display: inline-block;
+    vertical-align: top;
+    width: 180px;
+    text-align: right;
+    color: rgba(255, 255, 255, 1);
+    font-family: dirty-war;
+    font-size: 24px;
+    text-shadow: 6px 5px 6px rgba(0, 0, 0, 0.88);
+    letter-spacing: 3px;
+    margin-right: 10px;
+}
+
+.timer-container .colon {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 36px;
+}
+
+.time-count {
+    color: rgb(240, 84, 22);
+}
+
+.time-count-container {
+display: inline-block;
+width: 20px;
+text-align: left;
+
+}
+
+.timer-container h3 {
+    margin-block: 0px;
 }

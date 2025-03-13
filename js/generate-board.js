@@ -50,19 +50,19 @@ function placeMinesInMat(level, pos) {
 function setMinesNegsCount() {
     for (let i = 0; i < gModelBoard.length; i++) {
         for (let j = 0; j < gModelBoard[i].length; j++) {
-            gModelBoard[i][j].minesAroundCount = countNegsMines(i, j)
+            gModelBoard[i][j].minesAroundCount = countNegsMines({i, j})
         }
     }
 }
 
-function countNegsMines(iIdx, jIdx) {
+function countNegsMines(pos) {
     var count = 0
-    for (let i = iIdx - 1; i <= iIdx + 1; i++) {
-        for (let j = jIdx - 1; j <= jIdx + 1; j++) {
+    for (let i = pos.i - 1; i <= pos.i + 1; i++) {
+        for (let j = pos.j - 1; j <= pos.j + 1; j++) {
             if (i < 0 || j < 0 ||
                 i > gModelBoard.length - 1 ||
                 j > gModelBoard[i].length - 1 ||
-                (i === iIdx && j === jIdx)) continue
+                (i === pos.i && j === pos.j)) continue
 
             if (gModelBoard[i][j].type === MINE) count++
         }

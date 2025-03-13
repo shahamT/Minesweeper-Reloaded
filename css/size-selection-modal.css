@@ -6,7 +6,7 @@
     width: 100%;
     top: 0px;
     left: 0px;
-    background-color: rgba(189, 77, 12, 0.2);
+    background-color: rgba(165, 116, 42, 0.3);
     /* TODO make this scrollable with the page so allways showing */
 }
 
@@ -15,7 +15,7 @@
     box-sizing: border-box;
     z-index: 3;
     height: 560px;
-    width: 600px;
+    width: 700px;
     background-color: rgba(65, 40, 7, 0.8);
 
     top: calc(50% - 280px);
@@ -33,6 +33,7 @@
 .size-selection-modal h2 {
     font-size: 48px;
     text-shadow: 6px 5px 6px rgba(0, 0, 0, 0.88);
+    letter-spacing: 4px;
 
 }
 
@@ -40,6 +41,7 @@
     font-size: 34px;
     color: rgb(243, 203, 144);
     text-shadow: 6px 5px 6px rgba(0, 0, 0, 0.88);
+    letter-spacing: 2px;
 
 }
 

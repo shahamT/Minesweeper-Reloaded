@@ -3,6 +3,7 @@
 function explodeGameOver(elCell, pos) {
     //turn off game
     gGame.isOn = false
+    stopTimer()
 
     //explode the selected mine
     elCell.innerHTML = MINE_HTML_STR
@@ -63,7 +64,6 @@ function explodeLoseLive(elCell, pos) {
 }
 
 function checkIfWin() {
-    console.log(gGame.flaggedCount + gGame.revealedCount)
     if (gGame.flaggedCount + gGame.revealedCount === gGame.currLevel.SIZE ** 2) {
         onWin()
     } else return
@@ -72,6 +72,7 @@ function checkIfWin() {
 function onWin() {
     //turn off game
     gGame.isOn = false
+    stopTimer()
 
     //make all flagged cells get unclickable class (to remove hover effect)
     for (let i = 0; i < gModelBoard.length; i++) {
@@ -91,6 +92,10 @@ function onWin() {
 function onReset() {
     onInit()
     elGameContainer.hidden = true
+    
+    //hiding the tooltip
+    var tt = document.querySelector(`#tt0`)
+    tt.hidden = true
 }
 
 function shakeItAll() {

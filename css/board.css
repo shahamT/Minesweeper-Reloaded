@@ -46,6 +46,22 @@
     background-color: rgba(255, 255, 0, 0.3);
 }
 
+.cell.safe{
+    background-color: rgba(0, 255, 21, 0.3);
+}
+
+.cell.safe:hover{
+    background-color: rgba(0, 255, 21, 0.3);
+}
+
+.cell.highlight{
+    background-color: rgba(255, 251, 0, 0.5);
+}
+
+.cell.highlight:hover{
+    background-color: rgba(255, 251, 0, 0.5);
+}
+
 .cell-img {
     display: block;
     height: 100%;
