@@ -5,7 +5,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+  <title>Minesweeper Reloaded</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="img/flag-favicon.png">
   <base href="./">
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/board.css" />
@@ -96,7 +97,7 @@
           <div hidden id="tt3" class="tooltip tt-left">
             <p>Undo Last Reveal</p>
           </div>
-          <button id="ab3" class="action-btn" onmouseover="showTootip('tt3')" onmouseout="hideTootip('tt3')">
+          <button id="ab3" class="action-btn" onclick="onUndoClick()" onmouseover="showTootip('tt3')" onmouseout="hideTootip('tt3')">
             <div class="undo-img">
           </button>
         </div>
@@ -184,6 +185,8 @@
 
   <script src="js/util.js"></script>
   <script src="js/global-v.js"></script>
+  <script src="js/helper-f.js"></script>
+  <script src="js/reveal-f.js"></script>
   <script src="js/action-btns.js"></script>
   <script src="js/hints.js"></script>
   <script src="js/generate-board.js"></script>

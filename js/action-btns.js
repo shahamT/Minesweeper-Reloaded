@@ -1,18 +1,6 @@
 'use strict'
 
-function showTootip(ttId) {
-    var tt = document.querySelector(`#${ttId}`)
-    tt.hidden = false
-}
-function hideTootip(ttId) {
-    var tt = document.querySelector(`#${ttId}`)
-    tt.hidden = true
-}
-
-
-
-
-
+// get all safe cells into an array, then highlight one of the cells randomly for 1.5sec
 function onSafeClick() {
 
     if (gGame.safeClicks === 0) return //if there are no more safe clicks, abort
@@ -22,9 +10,9 @@ function onSafeClick() {
 
     //update safe clicks in model and DOM
     gGame.safeClicks--
-    elSafeClickSpan.innerText = gGame.safeClicks
+    gElSafeClickSpan.innerText = gGame.safeClicks
     if (gGame.safeClicks === 0) {   //make btn diasbled if no more safe clicks
-        elSafeClickBtn.classList.add(`btn-disabled`)
+        gElSafeClickBtn.classList.add(`btn-disabled`)
     }
 
     //create an array of all safe cells positions
@@ -53,7 +41,7 @@ function onSafeClick() {
 
 }
 
-
+//get all mines into an array, than selects 3 random mines and explode them, and changing their cell type to null
 function onExterminatorClick() {
     //if there are no more exterminators, or mines were not yet set - abort
     if (gGame.exterminators === 0 || gGame.revealedCount === 0) return
@@ -61,7 +49,7 @@ function onExterminatorClick() {
     //update exterminators in model and DOM
     gGame.exterminators--
     if (gGame.exterminators === 0) {   //make btn diasbled if no more exterminators
-        elExterminatorBtn.classList.add(`btn-disabled`)
+        gElExterminatorBtn.classList.add(`btn-disabled`)
     }
 
     //create an array of all mines positions
@@ -100,6 +88,7 @@ function onExterminatorClick() {
 
 }
 
+//show visual explosion for amount of time, then hide the cell
 function explodeTemporarily(elCell) {
     var backToGame = setTimeout(() => {
         elCell.innerHTML = ''
@@ -109,7 +98,7 @@ function explodeTemporarily(elCell) {
     }, 1500)
 }
 
-
+//update negs count after exploding mines (exterminator)
 function updateNegsCountforRevealedCells() {
     for (let i = 0; i < gModelBoard.length; i++) {
         for (let j = 0; j < gModelBoard[i].length; j++) {
@@ -128,6 +117,51 @@ function updateNegsCountforRevealedCells() {
 
 }
 
-function disableAllActionbtns(){
-    
+function disableAllActionbtns() {
+
+}
+
+//show action btn tooltip on hover
+function showTootip(ttId) {
+    var tt = document.querySelector(`#${ttId}`)
+    tt.hidden = false
+}
+
+//hide action btn tooltip on mouse out
+function hideTootip(ttId) {
+    var tt = document.querySelector(`#${ttId}`)
+    tt.hidden = true
+}
+
+function onUndoClick() {
+    //if there are no reveales - abort
+    if (gGame.revealedCount === 0) return
+
+    //get the array of reveales to Undo
+    const prevReveals = gGame.previousReveals[gGame.userClicks - 1]
+
+    //run through the array and hide the cells
+    for (let i = 0; i < prevReveals.length; i++) {
+        const cellId = createIdNameFromPos(prevReveals[i])
+        var elCell = document.querySelector(cellId)
+        elCell.innerHTML = ``
+        elCell.classList.remove(`revealed`)
+
+        //update the cell data
+        gModelBoard[prevReveals[i].i][prevReveals[i].j].revealed = false
+    }
+
+    //remove the cells from the revealed count
+    gGame.revealedCount -= prevReveals.length
+
+    //remove the array of cells from the previous reveals array
+    gGame.previousReveals.splice(gGame.userClicks - 1, 1)
+
+    //make sure the next reveals will get intocorrect position in the array
+    gGame.userClicks--
+
+    //play sound
+    UNDO_SOUND.currentTime = 0
+    UNDO_SOUND.play()
+
 }

@@ -1,5 +1,6 @@
 'use strict'
 
+//displaying the mine and finish the game
 function explodeGameOver(elCell, pos) {
     //turn off game
     gGame.isOn = false
@@ -37,9 +38,10 @@ function explodeGameOver(elCell, pos) {
     setGeneralFace(GENERAL_IMG.ANGRY)
 }
 
+//displaying the mine, remove one life and continue the game, if it's the last life - move to 'explodeGameOver'
 function explodeLoseLive(elCell, pos) {
     gGame.lives--
-    elLivesSpan.innerText = gGame.lives
+    gElLivesSpan.innerText = gGame.lives
 
     if (gGame.lives > 0) {
         //explode cell
@@ -55,14 +57,13 @@ function explodeLoseLive(elCell, pos) {
 
     }
 
-
-
     if (gGame.lives === 0) {
         explodeGameOver(elCell, pos)
     }
 
 }
 
+//sums the revealed and flagged mines and check if it equals to the number of total cells
 function checkIfWin() {
     if (gGame.flaggedCount + gGame.revealedCount === gGame.currLevel.SIZE ** 2) {
         onWin()
@@ -91,13 +92,14 @@ function onWin() {
 
 function onReset() {
     onInit()
-    elGameContainer.hidden = true
+    gElGameContainer.hidden = true
     
-    //hiding the tooltip
+    //hiding the tooltip of reset btn
     var tt = document.querySelector(`#tt0`)
     tt.hidden = true
 }
 
+//shaking animation for explosion
 function shakeItAll() {
     var count = 0
     var shake = setInterval(() => {
@@ -105,7 +107,7 @@ function shakeItAll() {
             clearInterval(shake)
             shake = null
         }
-        elBody.classList.toggle(`shake`)
+        gElBody.classList.toggle(`shake`)
         count++
     }, 50)
 }

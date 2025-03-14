@@ -1,5 +1,6 @@
 'use strict'
 
+//create a mat based on selected size and fill it with cell objects with initial records
 function generateModelMat(level) {
     const size = level.SIZE
     var mat = []
@@ -17,7 +18,7 @@ function generateModelMat(level) {
     return mat
 }
 
-
+// placing random mines, ignoring the first selected cell pos and it's negs
 function placeMinesInMat(level, pos) {
 
     //setting the initial minecount
@@ -46,7 +47,7 @@ function placeMinesInMat(level, pos) {
     }
 }
 
-
+//running through the matrix and updates all cells negs count
 function setMinesNegsCount() {
     for (let i = 0; i < gModelBoard.length; i++) {
         for (let j = 0; j < gModelBoard[i].length; j++) {
@@ -55,6 +56,7 @@ function setMinesNegsCount() {
     }
 }
 
+//calculating the negs mines of a specific cell
 function countNegsMines(pos) {
     var count = 0
     for (let i = pos.i - 1; i <= pos.i + 1; i++) {
@@ -70,6 +72,7 @@ function countNegsMines(pos) {
     return count
 }
 
+// showing the empty board ready for first click
 function renderEmptyBoard() {
     var strHtml = ''
 

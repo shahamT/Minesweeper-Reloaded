@@ -15,6 +15,8 @@ var gModelBoard = []
 
 var gGame = {
     isOn: false,
+    firstClick: true,
+    userClicks: 0,
     revealedCount: 0,
     flaggedCount: 0,
     currLevel: null,
@@ -25,26 +27,27 @@ var gGame = {
     megaHints: 1,
     isMegaHintOn: false,
     exterminators: 1,
-    previousReveales: []
+    previousReveals: []
 }
 
 var gTimer = 0
 var gTimerInterval
 
 // elements
-const elBody = document.querySelector(`body`)
+const gElBody = document.querySelector(`body`)
 const gElBoardContainer = document.querySelector(`.board-container`)
-const elSiSelMoContainer = document.querySelector(`.size-selection-modal-container`)
-const elGameContainer = document.querySelector(`.game-container`)
-const elResetBtn = document.querySelector(`.reset-btn`)
-const elLivesContainer = document.querySelector(`.lives-count`)
-const elLivesSpan = document.querySelector(`.lives-count .lives`)
-const elSafeClickSpan = document.querySelector(`#tt1 span`)
-const elSafeClickBtn = document.querySelector(`#ab1`)
-const elExterminatorBtn = document.querySelector(`#ab2`)
-const elUndoBtn = document.querySelector(`#ab3`)
-const elTimeCount = document.querySelector(`.time-count`)
-const elMegaHintBtn = document.querySelector(`#mhbtn1`)
+const gElSiSelMoContainer = document.querySelector(`.size-selection-modal-container`)
+const gElGameContainer = document.querySelector(`.game-container`)
+const gElResetBtn = document.querySelector(`.reset-btn`)
+const gElLivesContainer = document.querySelector(`.lives-count`)
+const gElLivesSpan = document.querySelector(`.lives-count .lives`)
+const gElSafeClickSpan = document.querySelector(`#tt1 span`)
+const gElSafeClickBtn = document.querySelector(`#ab1`)
+const gElExterminatorBtn = document.querySelector(`#ab2`)
+const gElUndoBtn = document.querySelector(`#ab3`)
+const gElTimeCount = document.querySelector(`.time-count`)
+const gElMegaHintBtn = document.querySelector(`#mhbtn1`)
+const gElbtnsContainer = document.querySelector('.size-selection .btns-container')
 
 //levels
 
@@ -56,9 +59,9 @@ const gLevels = [
 ]
 
 //hints
-var HINT1 = {used: false, element: document.querySelector(`#hint1`)}
-var HINT2 = {used: false, element: document.querySelector(`#hint2`)}
-var HINT3 = {used: false, element: document.querySelector(`#hint3`)}
+const HINT1 = {used: false, element: document.querySelector(`#hint1`)}
+const HINT2 = {used: false, element: document.querySelector(`#hint2`)}
+const HINT3 = {used: false, element: document.querySelector(`#hint3`)}
 var gCurrSelectedHint = null
 var gMeHitRange = []
 
@@ -72,6 +75,7 @@ const REMOVE_FLAG_SOUND = new Audio(`audio/remove-flag.mp3`)
 const WOW_SOUND = new Audio(`audio/wow.mp3`)
 const HINT_SOUND = new Audio(`audio/hint.mp3`)
 const RELIEF_SOUND = new Audio(`audio/relief.mp3`)
+const UNDO_SOUND = new Audio(`audio/undo.mp3`)
 
 
 // imgs

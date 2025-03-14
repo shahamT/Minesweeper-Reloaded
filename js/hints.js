@@ -66,12 +66,12 @@ function onMegaHintBtnClick() {
     if (gGame.revealedCount === 0 || gGame.megaHints === 0) return
 
     if (gGame.isMegaHintOn) {
-        elMegaHintBtn.classList.remove(`hint-selected`)
+        gElMegaHintBtn.classList.remove(`hint-selected`)
         gGame.isMegaHintOn = false
         clearAllMegaHintsRecords()
         clearAllHighlightCells()
     } else {
-        elMegaHintBtn.classList.add(`hint-selected`)
+        gElMegaHintBtn.classList.add(`hint-selected`)
         gGame.isMegaHintOn = true
     }
 
@@ -142,7 +142,7 @@ function megahintFlow(pos) {
 
     //disable the btn if no more mega hints allowed
     if (gGame.megaHints === 0) {
-        elMegaHintBtn.classList.add(`btn-disabled`)
+        gElMegaHintBtn.classList.add(`btn-disabled`)
     }
 }
 
@@ -159,7 +159,7 @@ function clearAllHintsRecords() {
 function clearAllMegaHintsRecords() {
     gMeHitRange = []
     gGame.isMegaHintOn = false
-    elMegaHintBtn.classList.remove(`hint-selected`)
+    gElMegaHintBtn.classList.remove(`hint-selected`)
     HINT_SOUND.currentTime = 0
     // clearAllHighlightCells()
 
