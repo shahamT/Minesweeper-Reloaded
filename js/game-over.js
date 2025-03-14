@@ -31,6 +31,9 @@ function explodeGameOver(elCell, pos) {
             }
         }
     }
+    
+    EXPLOSION_SOUND.pause()
+    EXPLOSION_SOUND.currentTime = 0
     EXPLOSION_SOUND.play()
     shakeItAll()
 
@@ -93,7 +96,8 @@ function onWin() {
 function onReset() {
     onInit()
     gElGameContainer.hidden = true
-    
+    BG_TENSION_AUDIO.pause()
+
     //hiding the tooltip of reset btn
     var tt = document.querySelector(`#tt0`)
     tt.hidden = true
