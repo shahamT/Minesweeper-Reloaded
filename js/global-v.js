@@ -18,7 +18,6 @@ var gGame = {
     revealedCount: 0,
     flaggedCount: 0,
     currLevel: null,
-    secsPassed: 0,
     isLivesModeOn: false,
     lives: 3,
     safeClicks: 3,
@@ -65,6 +64,7 @@ var gMeHitRange = []
 
 
 //sounds
+const BG_TENSION_AUDIO = new Audio(`audio/bg-tension-audio.mp3`)
 const EXPLOSION_SOUND = new Audio(`audio/explosion.mp3`)
 const DIG_SOUND = new Audio(`audio/dig.mp3`)
 const FLAG_SOUND = new Audio(`audio/flag.mp3`)

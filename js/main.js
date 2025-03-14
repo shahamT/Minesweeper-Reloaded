@@ -8,8 +8,6 @@ function onInit() {
     gGame.isOn = false
     gGame.revealedCount = 0
     gGame.flaggedCount = 0
-    gGame.secsPassed = 0
-    gGame.isLivesModeOn = false
     gGame.previousReveales = []
 
     //show level selection modal
@@ -27,9 +25,6 @@ function onInit() {
 function onCellClick(elCell, i, j) {
     const cell = gModelBoard[i][j]
     const pos = { i, j }
-
-    console.log("gGame.isMegaHintOn: ", gGame.isMegaHintOn)
-    console.log("gGame.megaHints: ", gGame.megaHints)
     
     //cases that are non clickable
     if (cell.flagged ||
@@ -180,6 +175,7 @@ function revealCellTemp(pos, time, elCell = undefined) {
     var revealTime = setTimeout(() => {
         elCell.innerHTML = ``
         elCell.classList.remove(`revealed`)
+        elCell.classList.remove(`highlight`)
 
         //game is back
         gGame.isOn = true

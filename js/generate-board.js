@@ -83,7 +83,9 @@ function renderEmptyBoard() {
                         class="cell covered"
                         data-i="${i}" data-j="${j}"
                         onclick="onCellClick(this,${i},${j})"
-                        oncontextmenu="onCellRightClick(event,this,${i},${j})"
+                        oncontextmenu="onCellRightClick(event,this,${i},${j})" 
+                        onmouseover="onCellHoverIn(this,'c-${i}-${j}',${i},${j})" 
+                        onmouseout="onCellHoverOut(this,'c-${i}-${j}',${i},${j})" 
                         >\n`
         }
         strHtml += `</th>\n`

@@ -76,6 +76,11 @@ function onStart(level) {
   gTimerInterval = null
   runTimer()
 
+//play bg sound
+BG_TENSION_AUDIO.currentTime = 0
+BG_TENSION_AUDIO.play()
+
+
 }
 
 
